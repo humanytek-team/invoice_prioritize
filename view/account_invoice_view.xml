@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="invoice_supplier_prioritized_form" model="ir.ui.view">
+        <field name="name">invoice.supplier.prioritized.form</field>
+        <field name="model">account.invoice</field>
+        <field name="inherit_id" ref="account.invoice_supplier_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='date']" position="after">
+                <field name="prioritized"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="invoice_supplier_group_prioritized_form" model="ir.ui.view">
+        <field name="name">invoice.group.supplier.prioritized.form</field>
+        <field name="model">account.invoice</field>
+        <field name="inherit_id" ref="invoice_supplier_prioritized_form"/>
+        <field name="groups_id" eval="[(6, 0, [ref('invoice_prioritize.group_prioritize') ])]"/>
+        <field name="arch" type="xml">
+            <field name='prioritized' position="attributes">
+                <attribute name="attrs">{'readonly':False}</attribute>
+            </field>
+        </field>
+    </record>
+</odoo>
