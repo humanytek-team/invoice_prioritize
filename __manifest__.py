@@ -32,8 +32,9 @@
     'version': '1.0.0',
     'depends': ['purchase'],
     'data': [
-        'view/account_invoice_view.xml',
         'security/invoice_prioritize_security.xml',
+        'view/account_invoice_view.xml',
+
     ],
     'demo': [
     ],
